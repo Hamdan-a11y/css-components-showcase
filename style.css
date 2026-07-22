@@ -1,0 +1,943 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   DESIGN SYSTEM & GLOBAL STYLES
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-primary: #080b11;
+  --bg-secondary: #0f141c;
+  --bg-tertiary: #171e29;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Brand/Accent Colors */
+  --color-primary: #6366f1; /* Indigo */
+  --color-primary-hover: #4f46e5;
+  --color-primary-rgb: 99, 102, 241;
+  
+  --color-secondary: #3b82f6; /* Blue */
+  --color-secondary-hover: #2563eb;
+  
+  --color-accent-purple: #a855f7; /* Purple */
+  --color-accent-purple-rgb: 168, 85, 247;
+  
+  --color-accent-cyan: #06b6d4; /* Cyan */
+  --color-accent-cyan-rgb: 6, 182, 212;
+  
+  /* Borders & Shadows */
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(99, 102, 241, 0.2);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-neon: 0 0 20px rgba(6, 182, 212, 0.4);
+  
+  /* Grid & Spacing */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ==========================================================================
+   LAYOUT & SHOWCASE CONTAINER STYLES
+   ========================================================================== */
+
+header {
+  padding: 5rem 2rem 3rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 40%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.tech-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.badge.v1 {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+  color: var(--color-primary);
+}
+
+/* Main Container Layout */
+.showcase-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 8rem 2rem;
+}
+
+/* Navigation Menu */
+.showcase-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  position: sticky;
+  top: 1.5rem;
+  z-index: 100;
+}
+
+.showcase-nav-list {
+  display: flex;
+  list-style: none;
+  background: rgba(15, 20, 28, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+.showcase-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.showcase-nav-link:hover,
+.showcase-nav-link.active {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+/* Section Styling */
+.category-section {
+  margin-bottom: 6rem;
+  scroll-margin-top: 8rem;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-header h2::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border-color), transparent);
+  margin-left: 1.5rem;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Grid Layout for Cards */
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+/* Base Component Showcase Wrapper */
+.showcase-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.showcase-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.showcase-card-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showcase-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.showcase-card-badge {
+  font-size: 0.75rem;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+/* Component Preview Area */
+.preview-pane {
+  flex-grow: 1;
+  min-height: 200px;
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  /* Visual checkerboard pattern */
+  background-image: 
+    radial-gradient(var(--bg-secondary) 1px, transparent 0),
+    radial-gradient(var(--bg-secondary) 1px, transparent 0);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+/* Code Area */
+.code-accordion {
+  background: #090d16;
+  border-top: 1px solid var(--border-color);
+}
+
+.code-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.85rem 1.5rem;
+  text-align: left;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.code-trigger:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.code-trigger-icon {
+  transition: transform var(--transition-normal);
+}
+
+.code-accordion[open] .code-trigger-icon {
+  transform: rotate(180deg);
+}
+
+.code-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+.code-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.code-tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.code-tab-btn.active {
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.code-panel {
+  display: none;
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: var(--radius-sm);
+  background: #05080e;
+}
+
+.code-panel.active {
+  display: block;
+}
+
+.code-panel pre {
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.code-panel code {
+  color: #a7f3d0;
+}
+
+/* Copy Button Styling */
+.copy-btn {
+  position: absolute;
+  top: 3.5rem;
+  right: 2rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  z-index: 5;
+}
+
+.copy-btn:hover {
+  color: var(--text-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   COMPONENT STYLES: BUTTONS (6)
+   ========================================================================== */
+
+/* Base button styles for preview */
+.btn-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-normal);
+}
+
+/* 1. Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 2. Secondary Button */
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* 3. Outline Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.btn-outline:active {
+  transform: scale(0.98);
+}
+
+/* 4. Gradient Button */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-purple) 100%);
+  background-size: 200% auto;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* 5. Neon Glow Button */
+.btn-neon {
+  background-color: transparent;
+  color: var(--color-accent-cyan);
+  border: 2px solid var(--color-accent-cyan);
+  text-shadow: 0 0 4px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.15), inset 0 0 10px rgba(6, 182, 212, 0.1);
+}
+
+.btn-neon:hover {
+  background-color: var(--color-accent-cyan);
+  color: var(--bg-primary);
+  text-shadow: none;
+  box-shadow: var(--shadow-neon);
+}
+
+.btn-neon:active {
+  transform: scale(0.98);
+}
+
+/* 6. Sliding Fill Hover Button */
+.btn-slide {
+  position: relative;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-primary);
+  transition: left var(--transition-normal);
+  z-index: -1;
+}
+
+.btn-slide:hover {
+  color: var(--bg-primary);
+}
+
+.btn-slide:hover::before {
+  left: 0;
+}
+
+/* ==========================================================================
+   COMPONENT STYLES: CARDS (3)
+   ========================================================================== */
+
+/* 1. Simple Card */
+.card-simple {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card-simple:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* 2. Glassmorphism Card */
+.card-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card-glass:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 3. Gradient Border Card */
+.card-gradient-border {
+  position: relative;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  z-index: 1;
+}
+
+/* The gradient border wrapper */
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent-purple), var(--color-accent-cyan));
+  border-radius: calc(var(--radius-md) + 1px);
+  z-index: -1;
+  transition: opacity var(--transition-normal);
+  opacity: 0.5;
+}
+
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* inner overlay for content */
+.card-gradient-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  z-index: -1;
+}
+
+/* ==========================================================================
+   COMPONENT STYLES: INPUTS (3)
+   ========================================================================== */
+
+.input-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* 1. Minimal Input */
+.input-minimal-wrapper {
+  position: relative;
+  padding-top: 1.25rem;
+}
+
+.input-minimal {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--bg-tertiary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  outline: none;
+  transition: border-color var(--transition-normal);
+}
+
+.input-minimal-label {
+  position: absolute;
+  top: 1.75rem;
+  left: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: transform var(--transition-normal), color var(--transition-normal), font-size var(--transition-normal);
+}
+
+/* Float label trigger */
+.input-minimal:focus ~ .input-minimal-label,
+.input-minimal:not(:placeholder-shown) ~ .input-minimal-label {
+  transform: translateY(-1.75rem);
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+.input-minimal:focus {
+  border-bottom-color: var(--color-primary);
+}
+
+/* 2. Floating Label Input */
+.input-floating-wrapper {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.input-floating {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+  outline: none;
+  transition: border-color var(--transition-normal);
+}
+
+.input-floating-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+/* Trigger label shift up */
+.input-floating:focus ~ .input-floating-label,
+.input-floating:not(:placeholder-shown) ~ .input-floating-label {
+  top: 30%;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+.input-floating:focus {
+  border-color: var(--color-primary);
+}
+
+/* 3. Glowing Focus Input */
+.input-glowing-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input-glowing-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-glowing {
+  width: 100%;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.input-glowing:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.25);
+}
+
+/* ==========================================================================
+   COMPONENT STYLES: LOADERS (3)
+   ========================================================================== */
+
+/* 1. Spinner Loader */
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-bottom-color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 2. Three Dots Loader */
+.loader-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 48px;
+}
+
+.loader-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-accent-purple);
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loader-dot:nth-child(2) {
+  animation-delay: 0.2s;
+  background-color: var(--color-primary);
+}
+
+.loader-dot:nth-child(3) {
+  animation-delay: 0.4s;
+  background-color: var(--color-accent-cyan);
+}
+
+@keyframes bounce {
+  to {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+/* 3. Pulse Loader */
+.loader-pulse {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-pulse::before,
+.loader-pulse::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan);
+  opacity: 0.6;
+  animation: pulse-ring 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.loader-pulse::after {
+  animation-delay: -0.6s;
+  background-color: var(--color-primary);
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.9;
+  }
+  70%, 100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS & MEDIA QUERIES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  header {
+    padding: 3rem 1rem 2rem 1rem;
+  }
+  
+  .showcase-nav {
+    top: 1rem;
+  }
+  
+  .showcase-nav-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .component-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .preview-pane {
+    padding: 2rem 1rem;
+  }
+}
