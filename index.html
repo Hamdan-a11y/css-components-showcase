@@ -22,15 +22,21 @@
     </div>
   </header>
 
-  <!-- Navigation Menu -->
-  <nav class="showcase-nav">
-    <ul class="showcase-nav-list">
-      <li><a href="#buttons" class="showcase-nav-link active" id="nav-btn-buttons">Buttons</a></li>
-      <li><a href="#cards" class="showcase-nav-link" id="nav-btn-cards">Cards</a></li>
-      <li><a href="#inputs" class="showcase-nav-link" id="nav-btn-inputs">Inputs</a></li>
-      <li><a href="#loaders" class="showcase-nav-link" id="nav-btn-loaders">Loaders</a></li>
-    </ul>
-  </nav>
+  <!-- Navigation Menu & Live Search -->
+  <div class="showcase-nav-wrapper">
+    <nav class="showcase-nav">
+      <ul class="showcase-nav-list">
+        <li><a href="#buttons" class="showcase-nav-link active" id="nav-btn-buttons">Buttons</a></li>
+        <li><a href="#cards" class="showcase-nav-link" id="nav-btn-cards">Cards</a></li>
+        <li><a href="#inputs" class="showcase-nav-link" id="nav-btn-inputs">Inputs</a></li>
+        <li><a href="#loaders" class="showcase-nav-link" id="nav-btn-loaders">Loaders</a></li>
+      </ul>
+    </nav>
+    <div class="showcase-search-bar">
+      <svg class="showcase-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="component-search-input" class="showcase-search-input" placeholder="Search 35+ components (e.g. glass, neon, pricing, skeleton)..." oninput="filterComponents(this.value)">
+    </div>
+  </div>
 
   <!-- Showcase Container -->
   <main class="showcase-container">
@@ -368,6 +374,367 @@
               </div>
             </div>
           </details>
+        <!-- 7. Glassmorphic Liquid Glow Button -->
+        <div class="showcase-card" id="comp-btn-glass-liquid">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Glass Liquid Button</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <button class="btn-preview btn-glass-liquid">Frosted Glow</button>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;button class="btn-glass-liquid"&gt;Frosted Glow&lt;/button&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-glass-liquid {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.btn-glass-liquid::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-glass-liquid:hover {
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-glass-liquid:hover::before {
+  left: 100%;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 8. Shimmer Sweep Light Button -->
+        <div class="showcase-card" id="comp-btn-shimmer">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Shimmer Sweep Button</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <button class="btn-preview btn-shimmer">Metallic Sheen</button>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;button class="btn-shimmer"&gt;Metallic Sheen&lt;/button&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-shimmer {
+  position: relative;
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid #374151;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-shimmer:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
+
+.btn-shimmer:hover {
+  border-color: #6b7280;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 9. Cyberpunk Sci-Fi Button -->
+        <div class="showcase-card" id="comp-btn-cyberpunk">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Cyberpunk Sci-Fi Button</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <button class="btn-preview btn-cyberpunk">OVERDRIVE_</button>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;button class="btn-cyberpunk"&gt;OVERDRIVE_&lt;/button&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-cyberpunk {
+  position: relative;
+  background: var(--color-accent-cyber);
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cyberpunk:hover {
+  background: var(--color-accent-cyan);
+  color: #000000;
+  box-shadow: 0 0 25px var(--color-accent-cyan);
+  transform: translate(-2px, -2px);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 10. Neumorphic Soft Inset Button -->
+        <div class="showcase-card" id="comp-btn-neumorphic">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Neumorphic Soft Button</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <button class="btn-preview btn-neumorphic">Soft Depth</button>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;button class="btn-neumorphic"&gt;Soft Depth&lt;/button&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-neumorphic {
+  background: #0f141c;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 6px 6px 14px #05070b, -6px -6px 14px #131b27;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-neumorphic:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.btn-neumorphic:active {
+  box-shadow: inset 4px 4px 8px #05070b, inset -4px -4px 8px #131b27;
+  transform: translateY(0);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 11. Magnetic Conic Pill Button -->
+        <div class="showcase-card" id="comp-btn-magnetic-border">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Magnetic Conic Pill</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <button class="btn-magnetic-border">
+              <span class="btn-magnetic-border-inner">Spinning Halo</span>
+            </button>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;button class="btn-magnetic-border"&gt;
+  &lt;span class="btn-magnetic-border-inner"&gt;Spinning Halo&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-magnetic-border {
+  position: relative;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  display: inline-flex;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-magnetic-border-inner {
+  background: var(--bg-secondary);
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.btn-magnetic-border::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, var(--color-primary), var(--color-accent-purple), var(--color-accent-cyan), var(--color-primary));
+  animation: rotate-conic 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate-conic {
+  100% { transform: rotate(360deg); }
+}
+
+.btn-magnetic-border:hover .btn-magnetic-border-inner {
+  background: var(--bg-tertiary);
+  color: #ffffff;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 12. Micro-Icon Tooltip Action Button -->
+        <div class="showcase-card" id="comp-btn-icon-tooltip">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Tooltip Action Button</span>
+            <span class="showcase-card-badge">Button</span>
+          </div>
+          <div class="preview-pane">
+            <div class="btn-icon-tooltip-wrapper" data-tooltip="Quick Bookmark">
+              <button class="btn-icon-tooltip">★</button>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="btn-icon-tooltip-wrapper" data-tooltip="Quick Bookmark"&gt;
+  &lt;button class="btn-icon-tooltip"&gt;★&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.btn-icon-tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-icon-tooltip {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.btn-icon-tooltip:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-icon-tooltip-wrapper::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon-tooltip-wrapper:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}</code></pre>
+              </div>
+            </div>
+          </details>
         </div>
 
       </div>
@@ -612,6 +979,422 @@
 }</code></pre>
               </div>
             </div>
+        <!-- 4. 3D Perspective Tilt Card -->
+        <div class="showcase-card" id="comp-card-tilt-3d">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">3D Perspective Tilt Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-tilt-3d">
+              <h3 class="card-title">3D Spatial Projection</h3>
+              <p class="card-description">Interactive card with dynamic 3D perspective rotation and elevation shadow matrix on hover.</p>
+              <a href="#" class="card-link" onclick="event.preventDefault()">Explore 3D &rarr;</a>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-tilt-3d"&gt;
+  &lt;h3 class="card-title"&gt;3D Spatial Projection&lt;/h3&gt;
+  &lt;p class="card-description"&gt;Interactive card with dynamic 3D perspective rotation and elevation shadow matrix on hover.&lt;/p&gt;
+  &lt;a href="#" class="card-link"&gt;Explore 3D &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-tilt-3d {
+  background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  width: 100%; max-width: 320px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-tilt-3d:hover {
+  transform: rotateX(8deg) rotateY(-8deg) translateZ(10px);
+  border-color: var(--color-primary);
+  box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.2);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 5. Pricing Tier Card -->
+        <div class="showcase-card" id="comp-card-pricing">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Pricing Plan Tier Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-pricing popular">
+              <span class="card-pricing-badge">Popular</span>
+              <h3 class="card-title" style="margin-bottom: 0;">Pro License</h3>
+              <div class="card-pricing-price">$29 <span>/ month</span></div>
+              <ul class="card-pricing-features">
+                <li>Unlimited UI Components</li>
+                <li>Commercial Projects License</li>
+                <li>Priority 24/7 Support</li>
+              </ul>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-pricing popular"&gt;
+  &lt;span class="card-pricing-badge"&gt;Popular&lt;/span&gt;
+  &lt;h3 class="card-title"&gt;Pro License&lt;/h3&gt;
+  &lt;div class="card-pricing-price"&gt;$29 &lt;span&gt;/ month&lt;/span&gt;&lt;/div&gt;
+  &lt;ul class="card-pricing-features"&gt;
+    &lt;li&gt;Unlimited UI Components&lt;/li&gt;
+    &lt;li&gt;Commercial Projects License&lt;/li&gt;
+    &lt;li&gt;Priority 24/7 Support&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-pricing {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  width: 100%; max-width: 320px;
+}
+
+.card-pricing.popular {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+.card-pricing-badge {
+  position: absolute;
+  top: -12px; right: 1.5rem;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.card-pricing-price {
+  font-size: 2.25rem; font-weight: 800;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 6. User Profile Avatar Card -->
+        <div class="showcase-card" id="comp-card-profile">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Profile Avatar Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-profile">
+              <div class="card-profile-avatar-wrap">
+                <div class="card-profile-avatar">JD</div>
+                <div class="card-profile-status"></div>
+              </div>
+              <h3 class="card-title" style="margin-bottom: 0.1rem;">Jane Doe</h3>
+              <p class="card-description" style="margin-bottom: 0;">Senior UI/UX Designer</p>
+              <div class="card-profile-stats">
+                <div><div class="card-profile-stat-val">1.2k</div><div class="card-profile-stat-lbl">Followers</div></div>
+                <div><div class="card-profile-stat-val">48</div><div class="card-profile-stat-lbl">Shots</div></div>
+                <div><div class="card-profile-stat-val">4.9★</div><div class="card-profile-stat-lbl">Rating</div></div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-profile"&gt;
+  &lt;div class="card-profile-avatar-wrap"&gt;
+    &lt;div class="card-profile-avatar"&gt;JD&lt;/div&gt;
+    &lt;div class="card-profile-status"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;h3 class="card-title"&gt;Jane Doe&lt;/h3&gt;
+  &lt;p class="card-description"&gt;Senior UI/UX Designer&lt;/p&gt;
+  &lt;div class="card-profile-stats"&gt;
+    &lt;div&gt;&lt;div class="card-profile-stat-val"&gt;1.2k&lt;/div&gt;&lt;div class="card-profile-stat-lbl"&gt;Followers&lt;/div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;div class="card-profile-stat-val"&gt;48&lt;/div&gt;&lt;div class="card-profile-stat-lbl"&gt;Shots&lt;/div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;div class="card-profile-stat-val"&gt;4.9★&lt;/div&gt;&lt;div class="card-profile-stat-lbl"&gt;Rating&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-profile {
+  background: rgba(15, 20, 28, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  width: 100%; max-width: 320px;
+  text-align: center;
+}
+
+.card-profile-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent-purple));
+  font-size: 1.75rem; font-weight: 700;
+}
+
+.card-profile-status {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 14px; height: 14px;
+  background: var(--color-accent-emerald);
+  border-radius: 50%;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 7. E-Commerce Product Hover Zoom Card -->
+        <div class="showcase-card" id="comp-card-product">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Product Zoom Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-product">
+              <div class="card-product-img-box">
+                <span class="card-product-img-icon">🎧</span>
+              </div>
+              <div class="card-product-body">
+                <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.2rem;">Cyber Beats Headphones</h3>
+                <p class="card-description" style="margin-bottom: 0.75rem;">Active noise-canceling wireless audio.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 800; font-size: 1.2rem; color: var(--color-accent-cyan);">$199</span>
+                  <span style="font-size: 0.8rem; color: var(--color-accent-amber);">★★★★★ (4.9)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-product"&gt;
+  &lt;div class="card-product-img-box"&gt;
+    &lt;span class="card-product-img-icon"&gt;🎧&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="card-product-body"&gt;
+    &lt;h3 class="card-title"&gt;Cyber Beats Headphones&lt;/h3&gt;
+    &lt;p class="card-description"&gt;Active noise-canceling wireless audio.&lt;/p&gt;
+    &lt;div class="card-product-footer"&gt;
+      &lt;span class="price"&gt;$199&lt;/span&gt;
+      &lt;span class="rating"&gt;★★★★★ (4.9)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-product {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden; width: 100%; max-width: 320px;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card-product:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent-purple);
+}
+
+.card-product-img-box {
+  width: 100%; height: 130px;
+  background: linear-gradient(135deg, #1e1b4b, #31104b);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.card-product-img-icon {
+  font-size: 3rem;
+  transition: transform 0.4s ease;
+}
+
+.card-product:hover .card-product-img-icon {
+  transform: scale(1.18) rotate(-4deg);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 8. Glowing Floating Aura Feature Card -->
+        <div class="showcase-card" id="comp-card-aura">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Glowing Aura Feature Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-aura">
+              <h3 class="card-title">Quantum Engine</h3>
+              <p class="card-description">Powered by real-time GPU acceleration with dynamic backdrop radial glow effects.</p>
+              <a href="#" class="card-link" onclick="event.preventDefault()">View Metrics &rarr;</a>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-aura"&gt;
+  &lt;h3 class="card-title"&gt;Quantum Engine&lt;/h3&gt;
+  &lt;p class="card-description"&gt;Powered by real-time GPU acceleration with dynamic backdrop radial glow effects.&lt;/p&gt;
+  &lt;a href="#" class="card-link"&gt;View Metrics &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-aura {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  width: 100%; max-width: 320px;
+  overflow: hidden;
+}
+
+.card-aura::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.4;
+}
+
+.card-aura:hover::before {
+  transform: scale(2.5);
+  opacity: 0.85;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 9. Interactive 3D Flip Reveal Card -->
+        <div class="showcase-card" id="comp-card-flip">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Interactive 3D Flip Card</span>
+            <span class="showcase-card-badge">Card</span>
+          </div>
+          <div class="preview-pane">
+            <div class="card-flip-container">
+              <div class="card-flip-inner">
+                <div class="card-flip-front">
+                  <h3 class="card-title" style="margin-bottom: 0.25rem;">Hover To Flip</h3>
+                  <p class="card-description" style="margin-bottom: 0;">Discover secret content on the reverse side</p>
+                </div>
+                <div class="card-flip-back">
+                  <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Secret Revealed! 🎉</h3>
+                  <p style="font-size: 0.85rem; opacity: 0.9;">Pure CSS 3D transform with <code>preserve-3d</code> and <code>backface-visibility</code>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="card-flip-container"&gt;
+  &lt;div class="card-flip-inner"&gt;
+    &lt;div class="card-flip-front"&gt;
+      &lt;h3 class="card-title"&gt;Hover To Flip&lt;/h3&gt;
+      &lt;p class="card-description"&gt;Discover secret content&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-flip-back"&gt;
+      &lt;h3&gt;Secret Revealed! 🎉&lt;/h3&gt;
+      &lt;p&gt;Pure CSS 3D transform.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.card-flip-container {
+  width: 100%; max-width: 320px; height: 180px;
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  position: relative; width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; cursor: pointer;
+}
+
+.card-flip-container:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front, .card-flip-back {
+  position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; border-radius: var(--radius-md);
+}
+
+.card-flip-back {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent-purple));
+  transform: rotateY(180deg);
+}</code></pre>
+              </div>
+            </div>
           </details>
         </div>
 
@@ -845,6 +1628,366 @@
           </details>
         </div>
 
+        <!-- 4. Search Bar with KBD Shortcut -->
+        <div class="showcase-card" id="comp-input-search-kbd">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">KBD Shortcut Search Input</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-search-kbd-wrapper">
+                <span style="color: var(--text-muted); font-size: 0.9rem;">🔍</span>
+                <input type="text" class="input-search-kbd-input" placeholder="Quick Search...">
+                <span class="input-kbd-pill">⌘ K</span>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-search-kbd-wrapper"&gt;
+  &lt;span&gt;🔍&lt;/span&gt;
+  &lt;input type="text" class="input-search-kbd-input" placeholder="Quick Search..."&gt;
+  &lt;span class="input-kbd-pill"&gt;⌘ K&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-search-kbd-wrapper {
+  position: relative; display: flex; align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.85rem; width: 100%;
+  transition: border-color var(--transition-normal);
+}
+
+.input-search-kbd-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.input-search-kbd-input {
+  background: transparent; border: none; outline: none;
+  color: var(--text-primary); font-family: var(--font-main);
+  font-size: 0.9rem; width: 100%; margin-left: 0.5rem;
+}
+
+.input-kbd-pill {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted); font-family: var(--font-mono);
+  font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 5. Password Field with Eye Toggle & Strength Meter -->
+        <div class="showcase-card" id="comp-input-password">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Password Strength Input</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-password-wrapper">
+                <input type="password" class="input-password-field" value="SecretP@ss2026">
+                <button class="input-password-toggle-btn" title="Toggle Visibility">👁</button>
+              </div>
+              <div class="input-password-strength">
+                <div class="input-password-meter-bar active-strong"></div>
+                <div class="input-password-meter-bar active-strong"></div>
+                <div class="input-password-meter-bar active-strong"></div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-password-wrapper"&gt;
+  &lt;input type="password" class="input-password-field" value="SecretP@ss2026"&gt;
+  &lt;button class="input-password-toggle-btn"&gt;👁&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="input-password-strength"&gt;
+  &lt;div class="input-password-meter-bar active-strong"&gt;&lt;/div&gt;
+  &lt;div class="input-password-meter-bar active-strong"&gt;&lt;/div&gt;
+  &lt;div class="input-password-meter-bar active-strong"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-password-field {
+  width: 100%; background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  color: var(--text-primary); outline: none;
+}
+
+.input-password-field:focus {
+  border-color: var(--color-primary);
+}
+
+.input-password-strength {
+  display: flex; gap: 4px; margin-top: 0.5rem;
+}
+
+.input-password-meter-bar {
+  height: 4px; flex: 1; background: var(--bg-tertiary); border-radius: 2px;
+}
+
+.input-password-meter-bar.active-strong {
+  background: #10b981;
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 6. Chip / Tag Selector Input -->
+        <div class="showcase-card" id="comp-input-chip">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Tag / Chip Selector Input</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-chip-container">
+                <span class="input-chip">CSS3 <span class="input-chip-close">×</span></span>
+                <span class="input-chip">UI/UX <span class="input-chip-close">×</span></span>
+                <input type="text" class="input-chip-text" placeholder="Add tag...">
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-chip-container"&gt;
+  &lt;span class="input-chip"&gt;CSS3 &lt;span class="input-chip-close"&gt;×&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="input-chip"&gt;UI/UX &lt;span class="input-chip-close"&gt;×&lt;/span&gt;&lt;/span&gt;
+  &lt;input type="text" class="input-chip-text" placeholder="Add tag..."&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-chip-container {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem; width: 100%;
+}
+
+.input-chip {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: var(--color-primary); font-size: 0.8rem;
+  padding: 0.2rem 0.6rem; border-radius: var(--radius-full);
+}
+
+.input-chip-close { cursor: pointer; }
+.input-chip-text { background: transparent; border: none; outline: none; color: var(--text-primary); }</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 7. Neumorphic Custom Range Slider -->
+        <div class="showcase-card" id="comp-input-range">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Custom Glowing Range Slider</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-range-wrapper">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
+                  <span>Volume Level</span>
+                  <span style="font-weight: 700; color: var(--color-primary);">75%</span>
+                </div>
+                <input type="range" class="input-range-custom" min="0" max="100" value="75">
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-range-wrapper"&gt;
+  &lt;input type="range" class="input-range-custom" min="0" max="100" value="75"&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-range-custom {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 8px; border-radius: 4px;
+  background: var(--bg-tertiary); outline: none;
+}
+
+.input-range-custom::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--color-primary); cursor: pointer;
+  box-shadow: 0 0 10px var(--color-primary);
+  transition: transform var(--transition-fast);
+}
+
+.input-range-custom::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 8. Floating Icon Prefix & Suffix Input -->
+        <div class="showcase-card" id="comp-input-icon-prefix">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Dual Icon Verified Input</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-icon-wrapper">
+                <span class="input-icon-lead">✉</span>
+                <input type="email" class="input-icon-field" value="alex@domain.com">
+                <span class="input-icon-trail">✓</span>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-icon-wrapper"&gt;
+  &lt;span class="input-icon-lead"&gt;✉&lt;/span&gt;
+  &lt;input type="email" class="input-icon-field" value="alex@domain.com"&gt;
+  &lt;span class="input-icon-trail"&gt;✓&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-icon-wrapper {
+  position: relative; display: flex; align-items: center; width: 100%;
+}
+
+.input-icon-lead { position: absolute; left: 0.85rem; color: var(--text-muted); }
+.input-icon-trail { position: absolute; right: 0.85rem; color: var(--color-accent-emerald); }
+
+.input-icon-field {
+  width: 100%; background: var(--bg-secondary);
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  padding: 0.75rem 2.5rem; color: var(--text-primary); outline: none;
+}
+
+.input-icon-field:focus {
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 9. Animated Underline Focus Expansion Input -->
+        <div class="showcase-card" id="comp-input-border-expand">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Border Expand Input</span>
+            <span class="showcase-card-badge">Input</span>
+          </div>
+          <div class="preview-pane">
+            <div class="input-container">
+              <div class="input-expand-container">
+                <input type="text" class="input-expand-field" placeholder="Click to focus expansion...">
+                <div class="input-expand-bar"></div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="input-expand-container"&gt;
+  &lt;input type="text" class="input-expand-field" placeholder="Click to focus expansion..."&gt;
+  &lt;div class="input-expand-bar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.input-expand-container {
+  position: relative; width: 100%;
+}
+
+.input-expand-field {
+  width: 100%; background: var(--bg-secondary);
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem; color: var(--text-primary); outline: none;
+}
+
+.input-expand-bar {
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-purple));
+  transform: scaleX(0); transition: transform 0.3s ease;
+}
+
+.input-expand-field:focus ~ .input-expand-bar {
+  transform: scaleX(1);
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
       </div>
     </section>
 
@@ -1032,6 +2175,337 @@
           </details>
         </div>
 
+        <!-- 4. Orbital Dual-Ring Spinner -->
+        <div class="showcase-card" id="comp-loader-orbital">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Orbital Dual-Ring Loader</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-orbital"></div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-orbital"&gt;&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.loader-orbital {
+  position: relative; width: 52px; height: 52px;
+}
+
+.loader-orbital::before, .loader-orbital::after {
+  content: ''; position: absolute; border-radius: 50%;
+}
+
+.loader-orbital::before {
+  inset: 0; border: 3px solid transparent;
+  border-top-color: var(--color-primary);
+  border-bottom-color: var(--color-accent-purple);
+  animation: spin-cw 1.2s linear infinite;
+}
+
+.loader-orbital::after {
+  inset: 8px; border: 3px solid transparent;
+  border-left-color: var(--color-accent-cyan);
+  border-right-color: var(--color-accent-pink);
+  animation: spin-ccw 0.8s linear infinite;
+}
+
+@keyframes spin-cw { 100% { transform: rotate(360deg); } }
+@keyframes spin-ccw { 100% { transform: rotate(-360deg); } }</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 5. Skeleton Wave Content Loader -->
+        <div class="showcase-card" id="comp-loader-skeleton">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Skeleton Wave Content Loader</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-skeleton-card">
+              <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <div class="skeleton-box skeleton-circle"></div>
+                <div class="skeleton-box skeleton-line-title"></div>
+              </div>
+              <div class="skeleton-box skeleton-line-text"></div>
+              <div class="skeleton-box skeleton-line-short"></div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-skeleton-card"&gt;
+  &lt;div class="skeleton-wrapper"&gt;
+    &lt;div class="skeleton-box skeleton-circle"&gt;&lt;/div&gt;
+    &lt;div class="skeleton-box skeleton-line-title"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="skeleton-box skeleton-line-text"&gt;&lt;/div&gt;
+  &lt;div class="skeleton-box skeleton-line-short"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.skeleton-box {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, rgba(255, 255, 255, 0.08) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer-wave 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-circle { width: 40px; height: 40px; border-radius: 50%; }
+.skeleton-line-title { width: 70%; height: 16px; }
+.skeleton-line-text { width: 100%; height: 12px; }
+.skeleton-line-short { width: 45%; height: 12px; }
+
+@keyframes shimmer-wave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 6. Liquid Morphing Blob Loader -->
+        <div class="showcase-card" id="comp-loader-liquid-blob">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Liquid Morphing Blob</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-liquid-blob"></div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-liquid-blob"&gt;&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.loader-liquid-blob {
+  width: 50px; height: 50px;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-accent-cyan));
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph-blob 3s ease-in-out infinite alternate;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+@keyframes morph-blob {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; }
+  100% { border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%; }
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 7. Segmented Progress Bar Loader -->
+        <div class="showcase-card" id="comp-loader-segmented">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Segmented Progress Bar</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-segmented-wrapper">
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Processing Request...</div>
+              <div class="loader-segmented-track">
+                <div class="loader-segmented-block"></div>
+                <div class="loader-segmented-block"></div>
+                <div class="loader-segmented-block"></div>
+                <div class="loader-segmented-block"></div>
+                <div class="loader-segmented-block"></div>
+              </div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-segmented-track"&gt;
+  &lt;div class="loader-segmented-block"&gt;&lt;/div&gt;
+  &lt;div class="loader-segmented-block"&gt;&lt;/div&gt;
+  &lt;div class="loader-segmented-block"&gt;&lt;/div&gt;
+  &lt;div class="loader-segmented-block"&gt;&lt;/div&gt;
+  &lt;div class="loader-segmented-block"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.loader-segmented-track {
+  display: flex; gap: 4px; height: 10px;
+}
+
+.loader-segmented-block {
+  flex: 1; background: var(--bg-tertiary);
+  border-radius: 2px;
+  animation: segment-pulse 1.4s infinite ease-in-out;
+}
+
+.loader-segmented-block:nth-child(1) { animation-delay: 0s; }
+.loader-segmented-block:nth-child(2) { animation-delay: 0.2s; }
+.loader-segmented-block:nth-child(3) { animation-delay: 0.4s; }
+.loader-segmented-block:nth-child(4) { animation-delay: 0.6s; }
+.loader-segmented-block:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes segment-pulse {
+  0%, 100% { background: var(--bg-tertiary); box-shadow: none; }
+  50% { background: var(--color-primary); box-shadow: 0 0 10px var(--color-primary); }
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 8. Code Terminal Typing Dots Loader -->
+        <div class="showcase-card" id="comp-loader-terminal">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">Terminal Cursor Loader</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-terminal-box">
+              <span>$ npm run build</span>
+              <span class="loader-terminal-cursor"></span>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-terminal-box"&gt;
+  &lt;span&gt;$ npm run build&lt;/span&gt;
+  &lt;span class="loader-terminal-cursor"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.loader-terminal-box {
+  background: #05080e; border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+  font-family: var(--font-mono); font-size: 0.85rem;
+  color: var(--color-accent-emerald); display: flex; align-items: center; gap: 0.5rem;
+}
+
+.loader-terminal-cursor {
+  display: inline-block; width: 8px; height: 16px;
+  background: var(--color-accent-emerald);
+  animation: blink-cursor 0.8s infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; } 50% { opacity: 0; }
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 9. DNA Helix / Wave Particle Loader -->
+        <div class="showcase-card" id="comp-loader-dna-waves">
+          <div class="showcase-card-header">
+            <span class="showcase-card-title">DNA Helix Wave Particles</span>
+            <span class="showcase-card-badge">Loader</span>
+          </div>
+          <div class="preview-pane">
+            <div class="loader-dna-waves">
+              <div class="loader-dna-bar"></div>
+              <div class="loader-dna-bar"></div>
+              <div class="loader-dna-bar"></div>
+              <div class="loader-dna-bar"></div>
+              <div class="loader-dna-bar"></div>
+            </div>
+          </div>
+          <details class="code-accordion">
+            <summary class="code-trigger">
+              <span>View Code</span>
+              <span class="code-trigger-icon">▼</span>
+            </summary>
+            <div class="code-content">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" onclick="switchTab(this, 'html')">HTML</button>
+                <button class="code-tab-btn" onclick="switchTab(this, 'css')">CSS</button>
+              </div>
+              <button class="copy-btn" onclick="copySnippet(this)">Copy Code</button>
+              <div class="code-panel active" data-type="html">
+                <pre><code>&lt;div class="loader-dna-waves"&gt;
+  &lt;div class="loader-dna-bar"&gt;&lt;/div&gt;
+  &lt;div class="loader-dna-bar"&gt;&lt;/div&gt;
+  &lt;div class="loader-dna-bar"&gt;&lt;/div&gt;
+  &lt;div class="loader-dna-bar"&gt;&lt;/div&gt;
+  &lt;div class="loader-dna-bar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+              <div class="code-panel" data-type="css">
+                <pre><code>.loader-dna-waves {
+  display: flex; align-items: center; gap: 6px;
+}
+
+.loader-dna-bar {
+  width: 4px; height: 36px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent-pink));
+  border-radius: 2px;
+  animation: dna-stretch 1.2s ease-in-out infinite;
+}
+
+.loader-dna-bar:nth-child(1) { animation-delay: 0s; }
+.loader-dna-bar:nth-child(2) { animation-delay: 0.15s; }
+.loader-dna-bar:nth-child(3) { animation-delay: 0.3s; }
+.loader-dna-bar:nth-child(4) { animation-delay: 0.45s; }
+.loader-dna-bar:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes dna-stretch {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}</code></pre>
+              </div>
+            </div>
+          </details>
+        </div>
+
       </div>
     </section>
 
@@ -1044,6 +2518,34 @@
 
   <!-- Interactive Utility Logic -->
   <script>
+    // Live component filtering search functionality
+    function filterComponents(query) {
+      const searchTerm = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.showcase-card');
+      const sections = document.querySelectorAll('.category-section');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.showcase-card-title')?.textContent.toLowerCase() || '';
+        const badge = card.querySelector('.showcase-card-badge')?.textContent.toLowerCase() || '';
+        const content = card.textContent.toLowerCase();
+
+        if (!searchTerm || title.includes(searchTerm) || badge.includes(searchTerm) || content.includes(searchTerm)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      sections.forEach(sec => {
+        const visibleCards = Array.from(sec.querySelectorAll('.showcase-card')).filter(c => c.style.display !== 'none');
+        if (visibleCards.length === 0 && searchTerm) {
+          sec.style.display = 'none';
+        } else {
+          sec.style.display = 'block';
+        }
+      });
+    }
+
     // Tab switching functionality inside component detail drawers
     function switchTab(btn, type) {
       const content = btn.closest('.code-content');
